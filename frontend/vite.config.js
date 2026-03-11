@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
-      '/api': 'http://localhost:5000', // Proxy API calls to backend during dev
+      '/api': process.env.VITE_API_URL || 'http://localhost:5000',
     },
   },
 })
