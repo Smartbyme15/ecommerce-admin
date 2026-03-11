@@ -12,7 +12,10 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors()); // Allow cross-origin requests from React frontend
+app.use(cors({
+  origin: '*',
+  credentials: false
+})); // Allow cross-origin requests from React frontend
 app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // Parse form data
 
