@@ -1,3 +1,4 @@
+import API_URL from '../api.js';
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
@@ -27,7 +28,7 @@ const Products = () => {
     setLoading(true);
     try {
       const params = selectedCategory !== 'All' ? { category: selectedCategory } : {};
-      const { data } = await axios.get('/api/products', { params });
+      const { data } = await axios.get(`${API_URL}/api/products`, { params });
       setProducts(data);
     } catch (err) {
       setError('Failed to load products');

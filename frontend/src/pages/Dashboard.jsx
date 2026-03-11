@@ -1,3 +1,4 @@
+import API_URL from '../api.js';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
@@ -13,7 +14,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const { data } = await axios.get('/api/products');
+        const { data } = await axios.get(`${API_URL}/api/products`);
         const outOfStock = data.filter((p) => p.stock === 0).length;
         const lowStock = data.filter((p) => p.stock > 0 && p.stock <= 5).length;
         const uniqueCats = new Set(data.map((p) => p.category)).size;

@@ -1,3 +1,4 @@
+
 const ProductCard = ({ product, onEdit, onDelete }) => {
   const isLowStock = product.stock <= 5;
 

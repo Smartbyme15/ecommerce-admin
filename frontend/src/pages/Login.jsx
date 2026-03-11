@@ -1,3 +1,4 @@
+import API_URL from '../api.js';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -21,7 +22,7 @@ const Login = () => {
 
     try {
       // POST to backend login API
-      const { data } = await axios.post('/api/auth/login', formData);
+      const { data } = await axios.post(`${API_URL}/api/auth/login`, formData);
       
       // Save user + token to context & localStorage
       login(data);
