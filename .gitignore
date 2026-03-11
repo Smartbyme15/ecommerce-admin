@@ -1,0 +1,9 @@
+# Ye dono folders kabhi push mat karna
+backend/node_modules/
+frontend/node_modules/
+
+# Ye credentials file kabhi push mat karna
+backend/.env
+
+# Mac ki hidden file (Windows pe zaroorat nahi)
+.DS_Store
