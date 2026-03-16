@@ -108,14 +108,13 @@ const Products = () => {
       images.forEach((img) => data.append('images', img)); // "images" matches backend field name
 
       if (editingProduct) {
-        await axios.put(`/api/products/${editingProduct._id}`, data, {
-          headers: { 'Content-Type': 'multipart/form-data' },
-        });
-        setSuccess('Product updated successfully!');
-      } else {
-        await axios.post('/api/products', data, {
-          headers: { 'Content-Type': 'multipart/form-data' },
-        });
+       await axios.put(`${API_URL}/api/products/${editingProduct._id}`, data, {
+       headers: { 'Content-Type': 'multipart/form-data' },
+      });
+
+     await axios.post(`${API_URL}/api/products`, data, {
+     headers: { 'Content-Type': 'multipart/form-data' },
+     });
         setSuccess('Product added successfully!');
       }
 
@@ -133,7 +132,7 @@ const Products = () => {
   const handleDelete = async (productId) => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
     try {
-      await axios.delete(`/api/products/${productId}`);
+    await axios.delete(`${API_URL}/api/products/${productId}`);
       setSuccess('Product deleted');
       fetchProducts();
       setTimeout(() => setSuccess(''), 3000);
